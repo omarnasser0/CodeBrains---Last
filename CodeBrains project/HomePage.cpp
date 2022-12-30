@@ -5,6 +5,9 @@
 #include "professor.h"
 #include "course.h"
 #include "student.h"
+#include "AddCoursePage.h"
+#include "AddStudentPage.h"
+#include "AddProfessorPage.h"
 
 #include <QProcess>
 
@@ -157,5 +160,29 @@ void HomePage::on_courseTable_cellDoubleClicked(int row, int column)
     QMap<QString,Course>:: Iterator cors = Course::courses.find(thisCode);
     cip = new CourseInfoPage(this,cors);
     cip->exec();
+}
+
+
+void HomePage::on_addStudentButton_clicked()
+{
+    AddStudentPage *addStudent;
+    addStudent = new AddStudentPage(this);
+    addStudent->show();
+}
+
+
+void HomePage::on_addCourseButton_clicked()
+{
+    AddCoursePage *addCourse;
+    addCourse = new AddCoursePage(this);
+    addCourse->show();
+}
+
+
+void HomePage::on_addProffButton_clicked()
+{
+    AddProfessorPage *addproff;
+    addproff = new AddProfessorPage(this);
+    addproff->show();
 }
 

@@ -51,6 +51,12 @@ private slots:
 
     void on_courseTable_cellDoubleClicked(int row, int column);
 
+    void on_addStudentButton_clicked();
+
+    void on_addCourseButton_clicked();
+
+    void on_addProffButton_clicked();
+
 private:
     Ui::HomePage *ui;
 //    CoursePage *coursePage;

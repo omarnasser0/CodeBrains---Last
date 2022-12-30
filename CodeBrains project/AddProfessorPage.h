@@ -1,6 +1,6 @@
 #ifndef ADDPROFESSORPAGE_H
 #define ADDPROFESSORPAGE_H
-
+#include"professor.h"
 #include <QDialog>
 
 namespace Ui {
@@ -14,6 +14,9 @@ class AddProfessorPage : public QDialog
 public:
     explicit AddProfessorPage(QWidget *parent = nullptr);
     ~AddProfessorPage();
+
+private slots:
+    void on_bottum_add_clicked();
 
 private:
     Ui::AddProfessorPage *ui;
