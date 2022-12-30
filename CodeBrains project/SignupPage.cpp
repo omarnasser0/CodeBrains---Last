@@ -18,7 +18,10 @@ SignupPage::~SignupPage()
 
 void SignupPage::on_registerButton_clicked()
 {
-    if(ui->passwordLineEdit->text() != ui->confirmPassswordLineEdit->text()){
+    if(ui->fullNameLineEdit->text().isEmpty() || ui->usernameLineEdit->text().isEmpty() || ui->passwordLineEdit->text().isEmpty() || ui->confirmPassswordLineEdit->text().isEmpty()){
+        QMessageBox::warning(this,"Error", "Please fill all the data");
+    }
+    else if(ui->passwordLineEdit->text() != ui->confirmPassswordLineEdit->text()){
         QMessageBox::warning(this,"Error", "Passwords doesn't match");
     }
     else{
@@ -32,7 +35,7 @@ void SignupPage::on_registerButton_clicked()
            hide();
             homePage = new HomePage(ui->fullNameLineEdit->text(), ui->usernameLineEdit->text(),this);
             homePage->show();
-            admin->registerNew(ui->usernameLineEdit->text(), ui->passwordLineEdit->text(), ui->fullNameLineEdit->text(), admin->check, admin->usernameFullName);
+            admin->registerNew(ui->usernameLineEdit->text(), ui->passwordLineEdit->text(), ui->fullNameLineEdit->text());
 
         }
     }

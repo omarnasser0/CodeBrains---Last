@@ -21,8 +21,8 @@ private:
 
 
 public:
-    QMap<QString, int> check{ {"ahmed", hashing("ahmedpass")}, {"mohamed", hashing("mohamedpass")} };
-    QMap<QString, QString> usernameFullName{{"ahmed", "Ahmed Elsayed"}, {"mohamed", "Mohamed Elsayed"} };
+    static QMap<QString, int> check;
+   static QMap<QString, QString> usernameFullName;
 
     Admin();
 
@@ -34,7 +34,9 @@ public:
 
     bool checkPassword(QString password);
 
-    void registerNew(QString username, QString password, QString fullName, QMap<QString, int> &check, QMap<QString, QString> &usernameFullName);
+    void registerNew(QString username, QString password, QString fullName);
+
+    void deleteUser(QString username);
 
     bool loginCheck(QString username, QString password);
 

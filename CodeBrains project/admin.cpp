@@ -18,6 +18,9 @@ int Admin::hashing(QString password){
         return h(password);
     }
 
+QMap<QString, int> Admin::check = {};
+QMap<QString, QString> Admin::usernameFullName = {};
+
 bool Admin::checkUsername(QString username){
         if(check[username]) return false;
         else return true;
@@ -29,15 +32,16 @@ bool Admin::checkPassword(QString password){
     else return true;
 }
 
-void Admin::registerNew(QString username, QString password, QString fullName, QMap<QString, int> &check, QMap<QString, QString> &usernameFullName)
+void Admin::registerNew(QString username, QString password, QString fullName)
 {
 
 
         this->fullName = fullName;
-         usernameFullName[username] = fullName;
+         usernameFullName.insert(username, fullName);
       this-> password = password;
        this->username = username;
-        check[username] = hashing(password);
+        check.insert(username, hashing(password));
+
 }
 
     bool Admin::loginCheck(QString username, QString password)
@@ -47,7 +51,10 @@ void Admin::registerNew(QString username, QString password, QString fullName, QM
         else  return false;
 
     }
-
+ void Admin::deleteUser(QString username){
+ check.remove(username);
+ usernameFullName.remove(username);
+ }
 
 
 

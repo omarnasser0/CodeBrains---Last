@@ -21,6 +21,7 @@ private slots:
 
 private:
     Ui::AdminInfoPage *ui;
+    QWidget *parent = nullptr;
     AdminEditPage *adminEditPage;
     QString name;
     QString username;

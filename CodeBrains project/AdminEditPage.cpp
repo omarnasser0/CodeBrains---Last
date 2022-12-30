@@ -1,6 +1,8 @@
 #include "AdminEditPage.h"
 #include "ui_AdminEditPage.h"
 #include "admin.h"
+#include "LoginPage.h"
+#include "HomePage.h"
 #include <QMessageBox>
 #include <QProcess>
 
@@ -11,6 +13,7 @@ AdminEditPage::AdminEditPage(QString name, QString username,QWidget *parent) :
     ui->setupUi(this);
     AdminEditPage::name = name;
     AdminEditPage::username = username;
+    AdminEditPage::parent = parent;
     ui->nameLineEdit->setText(name);
     ui->usernameLineEdit->setText(username);
 }
@@ -36,9 +39,13 @@ void AdminEditPage::on_pushButton_clicked()
          QMessageBox::warning(this,"Error","Password should be longer than 8 characters");
     }
     else{
-        admin->registerNew(ui->usernameLineEdit->text(), ui->newPassLineEdit->text(), ui->nameLineEdit->text(), admin->check, admin->usernameFullName);
-        qApp->quit();
-        QProcess::startDetached(qApp->arguments()[0], qApp->arguments());
+        admin->deleteUser(username);
+        admin->registerNew(ui->usernameLineEdit->text(), ui->newPassLineEdit->text(), ui->nameLineEdit->text());
+        LoginPage *loginPage;
+        loginPage = new LoginPage(this);
+        this->close();
+        parent->close();
+        loginPage->show();
 
 
     }

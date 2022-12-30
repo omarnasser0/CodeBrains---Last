@@ -25,13 +25,14 @@ void LoginPage::on_loginButton_clicked()
 {
     Admin *admin = new Admin();
 
-    if(admin->loginCheck(ui->usernamLlineEdit->text(),ui->passworLlineEdit->text())){
+    if(!admin->loginCheck(ui->usernamLlineEdit->text(),ui->passworLlineEdit->text()) || ui->usernamLlineEdit->text().isEmpty() || ui->passworLlineEdit->text().isEmpty()){
+        QMessageBox::critical(this,"Error","Incorrect Username or Password");
+    }
+    else{
+
         hide();
         homePage = new HomePage(admin->getFullName(ui->usernamLlineEdit->text()),ui->usernamLlineEdit->text() , this);
         homePage->show();
-    }
-    else{
-        QMessageBox::critical(this,"Error","Incorrect Username or Password");
     }
 }
 

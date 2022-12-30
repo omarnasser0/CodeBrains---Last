@@ -10,6 +10,7 @@ AdminInfoPage::AdminInfoPage(QString name, QString username,QWidget *parent) :
     ui->usernameLabel->setText(username);
     AdminInfoPage::name = name;
     AdminInfoPage::username = username;
+    AdminInfoPage::parent = parent;
 }
 
 AdminInfoPage::~AdminInfoPage()
@@ -19,7 +20,8 @@ AdminInfoPage::~AdminInfoPage()
 
 void AdminInfoPage::on_editButton_clicked()
 {
-    adminEditPage = new AdminEditPage(name, username,this);
+    adminEditPage = new AdminEditPage(name, username,parent);
+    close();
     adminEditPage->show();
 
 }
