@@ -3,14 +3,10 @@
 Course::Course()
 {}
 
-Course::Course(QString n, QString c, QString hall, std::pair<int, int> time)
+Course::Course(QString n, QString c)
 {
     name = n;
     code = c;
-    lecHall = hall;
-    time.first = time.first;
-    time.second = time.second;
-
 }
 
 QString Course::getCourseName(){
@@ -26,10 +22,12 @@ QString Course::getLecHall(){
 }
 
 QString Course::getLecTime(){
-    QString Ftime = QString::number(time.first);
-    QString Stime = QString::number(time.second);
-    QString conc_time = Ftime + Stime ;
-    return conc_time;
+    return time;
+}
+
+QString Course::getLecDay()
+{
+    return day;
 }
 
 void Course::setCode(QString c){
@@ -44,10 +42,14 @@ void Course::setLecHall(QString hall){
     lecHall = hall;
 }
 
-void Course::setLecTime(std::pair<int, int> t)
+void Course::setLecTime(QString t)
 {
-    time.first = t.first;
-    time.second = t.second;
+    time = t;
+}
+
+void Course::setLecDay(QString d)
+{
+    day = d;
 }
 
 QMap<QString, Course> Course::courses = {};

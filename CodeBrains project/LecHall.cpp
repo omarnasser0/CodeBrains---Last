@@ -1,37 +1,44 @@
 #include "LecHall.h"
 
-LecHall::LecHall(QString n) : name(n)
-{}
+LecHall::LecHall(QString n) : name(n){}
 
 QString LecHall::getName()
 {
     return name;
 }
 
-bool LecHall::isAvaliable(int time, int day)
+bool LecHall::isAvaliable(QString day, QString time)
 {
-    int dayCol = day - 1;
-    int timeRow = time - 1;
+    int dayn = LecHall::days.find(day).value();
+    int timen = LecHall::times.find(time).value();
 
-    return this->avaliable[timeRow][dayCol];
+    return this->avaliable[dayn][timen];
 }
 
-QVector <int> LecHall::timesAval(int d)
+QVector <QString> LecHall::timesAval(QString d)
 {
-    QVector <int> timesAval;
+    QVector <QString> timesAval;
 
-    int dayCol = d - 1;
+    int dayn = LecHall::days.find(d).value();
 
-    for(int i = 0; i < 5; i++)
-        if(this->avaliable[i][dayCol])
-            timesAval.push_front(i);
-
+    for(QMap <QString,int> :: Iterator t = LecHall::times.begin();
+        t != LecHall::times.end();
+        t++){
+        if(this->avaliable[dayn][t.value()])
+            timesAval.push_front(t.key());
+    }
     return timesAval;
 }
 
+void LecHall::reserve(QString day, QString time)
+{
+    int dayn = LecHall::days.find(day).value();
+    int timen = LecHall::times.find(time).value();
+
+    this->avaliable[dayn][timen] = false;
+}
 
     QMap<QString,LecHall> LecHall::lecHalls = {};
-
 
     QMap <QString,int> LecHall::days = {
         {"Saturday",0},
@@ -49,6 +56,3 @@ QVector <int> LecHall::timesAval(int d)
         {"2 : 0 - 3 : 30",3},
         {"3 : 45 - 5 : 15",4}
     };
-
-    bool avaliable[5][5] = {};
-

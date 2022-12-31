@@ -1,6 +1,8 @@
 #ifndef COURSEINFOPAGE_H
 #define COURSEINFOPAGE_H
 #include "course.h"
+#include "CourseEditPage.h"
+
 #include <QDialog>
 
 namespace Ui {
@@ -20,8 +22,12 @@ public:
 
     Course cors;
 
+private slots:
+    void on_editPushButton_clicked();
+
 private:
     Ui::CourseInfoPage *ui;
+    CourseEditPage *corsEditPage;
 };
 
 #endif // COURSEINFOPAGE_H

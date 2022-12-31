@@ -15,15 +15,17 @@ public:
 
     static QMap<QString,LecHall> lecHalls;
 
-    bool avaliable[5][5];
+    bool avaliable[6][5] = {true};
 
     LecHall(QString n);
 
     QString getName();
 
-    bool isAvaliable(int time, int day);
+    bool isAvaliable(QString day, QString time);
 
-    QVector <int> timesAval(int d);
+    QVector <QString> timesAval(QString d);
+
+    void reserve(QString day, QString time);
 
     static QMap <QString,int> days;
     static QMap <QString,int> times;

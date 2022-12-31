@@ -9,9 +9,9 @@
 class Student :public User
 {
 private:
-    QChar gpa;
+//    QChar gpa;
     float totalGrade;
-    int age;
+    QString age;
 
 public:
 
@@ -27,22 +27,22 @@ public:
     Student();
 
     //parameterized
-    Student(QString n, QString m, QString e, QString i, QChar gb, float totg , int a);
+    Student(QString n, QString m, QString e, QString i, QString a);
 
 
-    QChar getGpa();
-    void setGpa(QChar g_pa);
+//    QChar getGpa();
+//    void calcGpa(QChar g_pa);
 
     float getTotalGrade();
-    void setTotalGrade(float total);
+    float calcTotalGrade();
 
     QString getFirstLastName();
 
     QString getFullName();
     void setFullName(QString newfullName);
 
-    int getAge();
-    void setAge(int a_ge);
+    QString getAge();
+    void setAge(QString a_ge);
 
     QString getMobile();
     void setMobile(QString m_obile);

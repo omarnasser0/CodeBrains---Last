@@ -42,7 +42,7 @@ void ProfessorEditPage::courseComboBoxDisplay()
 
 void ProfessorEditPage::allCoursesTableDisplay()
 {
-    ui->allCoursesTable->setRowCount(editedProf.coursesForProfessor.size());
+    ui->allCoursesTable->setRowCount(0);
     ui->allCoursesTable->setColumnCount(2);
 
     QStringList hLables;
@@ -65,42 +65,14 @@ void ProfessorEditPage::allCoursesTableDisplay()
         ui->allCoursesTable->setItem(rowcount,0,ID);
         ui->allCoursesTable->setItem(rowcount,1,Name);
 
+        rowcount++;
     }
 }
-
-/*
-ui->studentTableInfo->setRowCount(sit.grades.size());
-ui->studentTableInfo->setColumnCount(2);
-
-QStringList hLables;
-hLables<<"Name"<<"Grade";
-ui->studentTableInfo->setHorizontalHeaderLabels(hLables);
-
-int rowcount = 0;
-for(QMap<QString,float>:: Iterator It = sit.grades.begin();
-    It!= sit.grades.end();
-    It++)
-{
-    ui->studentTableInfo->insertRow(rowcount);
-
-    QTableWidgetItem *Name= new QTableWidgetItem;
-    QTableWidgetItem *Grade= new QTableWidgetItem;
-
-    Name->setText(Course::courses.find(It.key())->getCourseName());
-    Grade->setText(QString::number(It.value()));
-
-    ui->studentTableInfo->setItem(rowcount,0,Name);
-    ui->studentTableInfo->setItem(rowcount,1,Grade);
-
-    rowcount++;
-}*/
-
 
 void ProfessorEditPage::on_allCoursesTable_cellDoubleClicked(int row, int column)
 {
     QString thisId = ui->allCoursesTable->item(row,0)->text();
     ui->courseComboBox->addItem(thisId);
-
 }
 
 
@@ -125,8 +97,6 @@ void ProfessorEditPage::on_savePushButton_clicked()
     }
 
     Professor::professors.insert(editedProf.getID(),editedProf);
-
-    emit saveSignal();
 
     this->close();
 

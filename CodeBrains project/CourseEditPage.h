@@ -5,6 +5,8 @@
 
 #include "course.h"
 #include "LecHall.h"
+#include "student.h"
+#include "professor.h"
 
 namespace Ui {
 class CourseEditPage;
@@ -22,6 +24,22 @@ public:
     void dayComboboxdisplay();
     void timeComboboxdisplay();
 
+    void allStdTableDisplay();
+    void allPrfTableDisplay();
+
+    void addedStdTableDisplay();
+    void addedPrfTableDisplay();
+
+private slots:
+    void on_SavePushButton_clicked();
+
+    void on_allStudentsTable_cellDoubleClicked(int row, int column);
+
+    void on_allProfessorsTable_cellDoubleClicked(int row, int column);
+
+    void on_deleteSButton_clicked();
+
+    void on_deletePButton_clicked();
 
 private:
     Ui::CourseEditPage *ui;

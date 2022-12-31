@@ -144,6 +144,16 @@
      <item>
       <widget class="QTableWidget" name="studentTableInfo"/>
      </item>
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Double Click to add a course to this student</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
     </layout>
    </item>
    <item>

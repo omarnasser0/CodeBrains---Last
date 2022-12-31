@@ -35,7 +35,6 @@ void StudentEditPage::courseComboBoxDisplay()
     for(int c = 0; c < coursesList.size(); c++)
         ui->coursecomboBox->addItem(coursesList[c]);
 
-
 }
     //int rowcount = 0;
 //    for(QMap<QString,float> ::Iterator it = editedStudent.grades.begin(); it != editedStudent.grades.end(); it++){

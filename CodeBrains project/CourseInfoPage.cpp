@@ -12,7 +12,8 @@ CourseInfoPage::CourseInfoPage(QWidget *parent, QMap<QString,Course>:: Iterator 
     ui->nameLabel->setText(cIt->getCourseName());
     ui->codeLabel->setText(cIt->getCode());
     ui->lecHallLabel->setText(cIt->getLecHall());
-    ui->timeLabel_1->setText(cIt->getLecTime());
+    ui->dayLabel->setText(cIt->getLecDay());
+    ui->timeLabel->setText(cIt->getLecTime());
 
     studentsTableDisplay();
     professorTableDisplay();
@@ -25,7 +26,7 @@ CourseInfoPage::~CourseInfoPage()
 
 void CourseInfoPage::studentsTableDisplay()
 {
-    ui->studentsInCourseTable->setRowCount(cors.studentsGrade.size());
+    ui->studentsInCourseTable->setRowCount(0);
     ui->studentsInCourseTable->setColumnCount(2);
 
     QStringList hLables;
@@ -34,47 +35,56 @@ void CourseInfoPage::studentsTableDisplay()
 
     int rowcount = 0;
     for(QMap<QString,float>:: Iterator It = cors.studentsGrade.begin();
-        It!= cors.studentsGrade.end();
+        It != cors.studentsGrade.end();
         It++)
     {
         ui->studentsInCourseTable->insertRow(rowcount);
 
-            QTableWidgetItem *Name= new QTableWidgetItem;
-            QTableWidgetItem *Grade= new QTableWidgetItem;
+        QTableWidgetItem *Name= new QTableWidgetItem;
+        QTableWidgetItem *Grade= new QTableWidgetItem;
 
-            Name->setText(Course::courses.find(It.key())->getCourseName());
-            Grade->setText(QString::number(It.value()));
+        Name->setText(Student::students.find(It.key())->getFullName());
+        Grade->setText(QString::number(It.value()));
 
-            ui->studentsInCourseTable->setItem(rowcount,0,Name);
-            ui->studentsInCourseTable->setItem(rowcount,1,Grade);
+        ui->studentsInCourseTable->setItem(rowcount,0,Name);
+        ui->studentsInCourseTable->setItem(rowcount,1,Grade);
 
-            rowcount++;
+        rowcount++;
     }
-
 }
+
 
 void CourseInfoPage::professorTableDisplay()
 {
-    for(auto it : cors.professorsForCourse){
-        ui->professorsInCListView->addItem(it);
+    ui->profInCourseTable->setColumnCount(2);
+
+    QStringList hLables;
+    hLables<<"ID"<<"Name";
+    ui->profInCourseTable->setHorizontalHeaderLabels(hLables);
+
+    int rowcount = 0;
+    for(auto p : cors.professorsForCourse){
+        ui->profInCourseTable->insertRow(rowcount);
+
+        QTableWidgetItem *ID= new QTableWidgetItem;
+        QTableWidgetItem *Name= new QTableWidgetItem;
+
+        ID->setText(Professor::professors.find(p)->getID());
+        Name->setText(Professor::professors.find(p)->getFullName());
+
+        ui->profInCourseTable->setItem(rowcount,0,ID);
+        ui->profInCourseTable->setItem(rowcount,1,Name);
+
+        rowcount++;
     }
 }
 
-//int rowcount = 0;
-//for(QMap<QString,float>:: Iterator It = sit.grades.begin();
-//    It!= sit.grades.end();
-//    It++)
-//{
-//    ui->studentTableInfo->insertRow(rowcount);
 
-//    QTableWidgetItem *Name= new QTableWidgetItem;
-//    QTableWidgetItem *Grade= new QTableWidgetItem;
-
-//    Name->setText(Course::courses.find(It.key())->getCourseName());
-//    Grade->setText(QString::number(It.value()));
-
-//    ui->studentTableInfo->setItem(rowcount,0,Name);
-//    ui->studentTableInfo->setItem(rowcount,1,Grade);
-
-//    rowcount++;
-//}
+void CourseInfoPage::on_editPushButton_clicked()
+{
+    QString thisId = ui->codeLabel->text();
+    QMap<QString,Course>:: Iterator corsIt = Course::courses.find(thisId);
+    corsEditPage = new CourseEditPage(this,corsIt);
+    corsEditPage->show();
+    this->close();
+}

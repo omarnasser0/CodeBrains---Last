@@ -16,8 +16,6 @@ public:
     ~AddStudentPage();
 
 private slots:
-    void on_pushButton_clicked();
-
     void on_buttomadd_clicked();
 
 private:

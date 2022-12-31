@@ -21,9 +21,6 @@ public:
     void courseComboBoxDisplay();
     void allCoursesTableDisplay();
 
-signals:
-    void saveSignal();
-
 private slots:
 
     void on_allCoursesTable_cellDoubleClicked(int row, int column);

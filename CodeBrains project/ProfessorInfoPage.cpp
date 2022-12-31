@@ -6,6 +6,7 @@ ProfessorInfoPage::ProfessorInfoPage(QWidget *parent,QMap<QString,Professor>:: I
     ui(new Ui::ProfessorInfoPage)
 {
     ui->setupUi(this);
+    setAttribute(Qt::WA_DeleteOnClose);
 
     prof = profIt.value();
 
@@ -26,7 +27,6 @@ ProfessorInfoPage::~ProfessorInfoPage()
 
 void ProfessorInfoPage::professorInfoTableDisplay()
 {
-    ui->professorTableInfo->setRowCount(prof.coursesForProfessor.size());
     ui->professorTableInfo->setColumnCount(2);
 
     QStringList hLables;
@@ -56,8 +56,8 @@ void ProfessorInfoPage::on_editPushButton_clicked()
     QString thisId = ui->idLabel->text();
     QMap<QString,Professor>:: Iterator profIt = Professor::professors.find(thisId);
     profEditPage = new ProfessorEditPage(this,profIt);
-    connect(profEditPage,SIGNAL(saveSignal()),this,SLOT(refreshTable()));
-    profEditPage->show();
+    profEditPage->exec();
+    this->close();
 }
 
 void ProfessorInfoPage::refreshTable()

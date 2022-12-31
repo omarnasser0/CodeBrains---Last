@@ -17,6 +17,7 @@ StudentInfoPage::StudentInfoPage(QWidget *parent, QMap<QString,Student> :: Itera
     ui->idLabel->setText(stud->getID());
     ui->phoneLabel->setText(stud->getMobile());
     ui->emailLabel->setText(stud->getMail());
+    ui->tGradeLabel->setText(QString::number(stud->calcTotalGrade()));
 
     studentInfoTableDisplay();
 
@@ -31,7 +32,6 @@ StudentInfoPage::~StudentInfoPage()
 void StudentInfoPage::studentInfoTableDisplay()
 {
 
-    ui->studentTableInfo->setRowCount(sit.grades.size());
     ui->studentTableInfo->setColumnCount(2);
 
     QStringList hLables;

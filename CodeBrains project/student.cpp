@@ -7,34 +7,38 @@ QMap <QString,Student> Student::students = {};
 
 Student::Student(){
 
-    //firstName = lastName = mobile = email = ID = "";
-    gpa ='-';
-    totalGrade = age = 0;
+   //firstName = lastName = mobile = email = ID = "";
+   totalGrade = 0;
 
 }
 
-Student::Student(QString n, QString m, QString e, QString i, QChar gb, float totg , int a)
-    : User(n, m, e,i), gpa(gb), totalGrade(totg), age(a)
+Student::Student(QString n, QString m, QString e, QString i, QString a)
+    : User(n, m, e,i), age(a)
 {}
 
-QChar Student::getGpa()
-{
-    return gpa;
-}
+//QChar Student::getGpa()
+//{
+//    return gpa;
+//}
 
-void Student::setGpa(QChar g_pa)
-{
-    gpa = g_pa;
-}
+//void Student::calcGpa(QChar g_pa)
+//{
+
+//}
 
 float Student::getTotalGrade()
 {
     return totalGrade;
 }
 
-void Student::setTotalGrade(float total)
+float Student::calcTotalGrade()
 {
-    totalGrade = total;
+    totalGrade = 0;
+
+    for(auto g : this->grades)
+        totalGrade += g;
+
+    return totalGrade;
 }
 
 QString Student::getFirstLastName()
@@ -56,12 +60,12 @@ QString Student::getFullName()
      fullName=newfullName;
  }
 
-int Student::getAge()
+QString Student::getAge()
 {
     return age;
 }
 
-void Student::setAge(int a_ge)
+void Student::setAge(QString a_ge)
 {
     age = a_ge;
 }

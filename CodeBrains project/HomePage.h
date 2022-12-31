@@ -37,12 +37,6 @@ private slots:
 
     void on_logoutButton_clicked();
 
-    void on_studentsButton_clicked();
-
-    void on_coursesButton_clicked();
-
-    void on_professorsButton_clicked();
-
     void on_infoButton_clicked();
 
     void on_studentTable_cellDoubleClicked(int row, int column);
@@ -51,11 +45,17 @@ private slots:
 
     void on_courseTable_cellDoubleClicked(int row, int column);
 
-    void on_addStudentButton_clicked();
+    void on_refreshPButton_clicked();
 
-    void on_addCourseButton_clicked();
+    void on_RefreshCButton_clicked();
 
-    void on_addProffButton_clicked();
+    void on_RefreshSButton_clicked();
+
+    void on_addStudent_clicked();
+
+    void on_addCourse_clicked();
+
+    void on_addProfessor_clicked();
 
 private:
     Ui::HomePage *ui;

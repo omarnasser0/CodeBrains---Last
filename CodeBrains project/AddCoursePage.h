@@ -20,25 +20,32 @@ public:
 
     ~AddCoursePage();
 
+    void lecHallCBox();
+    void dayCBoxDisplay();
+    void timeCBoxDisplay();
+
+    void allStdTableDisplay();
+    void allPrfTableDisplay();
+
+    void addedStdTableDisplay();
+    void addedPrfTableDisplay();
+
 private slots:
 
-    void on_add_course_butom_clicked();
+    void on_addPushButton_clicked();
 
-    void on_combo_time_currentTextChanged(const QString &arg1);
+    void on_deleteSButton_clicked();
 
-    void on_comboStudentList_currentTextChanged(const QString &arg1);
+    void on_deletePButton_clicked();
 
-    void on_selectedStudenListt_itemDoubleClicked(QListWidgetItem *item);
+    void on_allStudentsTable_cellDoubleClicked(int row, int column);
 
-    void on_listWidget_itemDoubleClicked(QListWidgetItem *item);
-
-    void on_combo_professor_currentTextChanged(const QString &arg1);
-
-    void on_selectedProfessorList_itemDoubleClicked(QListWidgetItem *item);
+    void on_allProfessorsTable_cellDoubleClicked(int row, int column);
 
 private:
     Ui::AddCoursePage *ui;
-    void TablewidgetDisplay();
+
+    Course newCourse;
 };
 
 #endif // ADDCOURSEPAGE_H
