@@ -2,7 +2,7 @@
 #include "ui_ProfessorEditPage.h"
 
 #include <QAction>
-
+#include<QMessageBox>
 #include "course.h"
 
 ProfessorEditPage::ProfessorEditPage(QWidget *parent,QMap<QString,Professor>:: Iterator profIt) :
@@ -11,14 +11,17 @@ ProfessorEditPage::ProfessorEditPage(QWidget *parent,QMap<QString,Professor>:: I
 {
     ui->setupUi(this);
 
-    editedProf = profIt.value();
+    oldID=profIt->getID();
+
 
     ui->FLNameLabel->setText(profIt->getFirstLastName());
     ui->nameLineEdit->setText(profIt->getFullName());
-    ui->idLabel->setText(profIt->getID());
+    ui->idLineEdit->setText(profIt->getID());
     ui->titleLineEdit->setText(profIt->getTitle());
     ui->emailLineEdit->setText(profIt->getMail());
     ui->phoneLineEdit->setText(profIt->getMobile());
+
+    profPtr = &profIt.value();
 
     courseComboBoxDisplay();
     allCoursesTableDisplay();
@@ -29,15 +32,11 @@ ProfessorEditPage::~ProfessorEditPage()
     delete ui;
 }
 
+
 void ProfessorEditPage::courseComboBoxDisplay()
 {
-    QStringList coursesList;
-
-    for(auto v : editedProf.coursesForProfessor)
-        coursesList.push_front(v.getCode());
-
-    for(int c = 0; c < coursesList.size(); c++)
-        ui->courseComboBox->addItem(coursesList[c]);
+    for(auto v : profPtr->coursesForProfessor)
+        ui->courseComboBox->addItem(v.getCode());
 }
 
 void ProfessorEditPage::allCoursesTableDisplay()
@@ -69,6 +68,7 @@ void ProfessorEditPage::allCoursesTableDisplay()
     }
 }
 
+
 void ProfessorEditPage::on_allCoursesTable_cellDoubleClicked(int row, int column)
 {
     QString thisId = ui->allCoursesTable->item(row,0)->text();
@@ -84,19 +84,36 @@ void ProfessorEditPage::on_deletePushButton_clicked()
 
 void ProfessorEditPage::on_savePushButton_clicked()
 {
-    editedProf.setFullName(ui->nameLineEdit->text());
-    editedProf.setMail(ui->emailLineEdit->text());
-    editedProf.setMobile(ui->phoneLineEdit->text());
-    editedProf.setTitle(ui->titleLineEdit->text());
-
-    int coursesNum = ui->courseComboBox->count();
-
-    for(int i = 0; i < coursesNum; i++){
-       editedProf.coursesForProfessor.push_back(Course::courses.find(ui->courseComboBox->currentText()).value());
-       ui->courseComboBox->removeItem(ui->courseComboBox->currentIndex());
+    if(ui->nameLineEdit->text().isEmpty()||ui->emailLineEdit->text().isEmpty()||ui->phoneLineEdit->text().isEmpty()||ui->idLineEdit->text().isEmpty()||ui->titleLineEdit->text().isEmpty())
+    {
+        QMessageBox::critical(this,"Erorr","Empty line");
+        return;//وممكن كمان نخليها كيز عشان يطلعلوا ايه الفاضى بالظبط عضشان عيون عمر
     }
 
-    Professor::professors.insert(editedProf.getID(),editedProf);
+    profPtr->setFullName(ui->nameLineEdit->text());
+    profPtr->setMail(ui->emailLineEdit->text());
+    profPtr->setMobile(ui->phoneLineEdit->text());
+    profPtr->setTitle(ui->titleLineEdit->text());
+
+    int coursesNum = ui->courseComboBox->count();
+    profPtr->coursesForProfessor.clear();
+   for(int i = 0; i < coursesNum; i++)
+    {
+
+//       Course *thisCourse=new Course;
+//       *thisCourse = Course::courses.find(ui->courseComboBox->itemText(i)).value();
+
+       profPtr->coursesForProfessor.insert(i,Course::courses.find(ui->courseComboBox->itemText(i)).value());
+
+    }
+
+    profPtr->setID(ui->idLineEdit->text());
+    if(ui->idLineEdit->text()!=oldID)
+    {
+        Professor::professors.insert(profPtr->getID(),*profPtr);
+        Professor::professors.remove(oldID);
+    }
+
 
     this->close();
 

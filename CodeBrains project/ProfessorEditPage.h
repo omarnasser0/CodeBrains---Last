@@ -31,7 +31,8 @@ private slots:
 
 private:
     Ui::ProfessorEditPage *ui;
-    Professor editedProf;
+    Professor *profPtr;
+     QString oldID;
 };
 
 #endif // PROFESSOREDITPAGE_H
