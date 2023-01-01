@@ -16,9 +16,16 @@ public:
     explicit StudentEditPage(QWidget *parent = nullptr,QMap<QString,Student>:: Iterator stud = {});
     ~StudentEditPage();
 
+<<<<<<< HEAD
     void studentCoursesDisplay();
     void allCoursesDisplay();
     void courseComboBoxDisplay();
+=======
+        void studentCoursesDisplay();
+        void allCoursesDisplay();
+        void courseComboBoxDisplay();
+
+>>>>>>> fa94936290dbb4550fcc7a0bbe9fb963ef7fee0a
 private slots:
     void on_savePushButton_clicked();
     void on_allCoursesTable_cellDoubleClicked(int row, int column);
@@ -31,6 +38,10 @@ private:
     Student *studPtr;
      QString oldID;
 int rowcount =0;
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa94936290dbb4550fcc7a0bbe9fb963ef7fee0a
 };
 
 #endif // STUDENTEDITPAGE_H

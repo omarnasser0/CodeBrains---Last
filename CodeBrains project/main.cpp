@@ -73,12 +73,12 @@ int main(int argc, char *argv[])
 
     Professor AH("Ahmed Hesham","0101010101","ahmed@sbme.com","1313","Dr");
     Professor SS("Shreif Sami","010000000","ss@sbme.net","5555","phd");
-    Professor MI("Mohammed Islam","0101010101","ahmed@sbme.com","1111","Dr");
+   // Professor MI("Mohammed Islam","0101010101","ahmed@sbme.com","1111","Dr");
 
 
     AH.coursesForProfessor.push_back(DT);
     SS.coursesForProfessor.push_back(BM);
-    MI.coursesForProfessor.push_back(ELC);
+    //MI.coursesForProfessor.push_back(ELC);
 
     DT.professorsForCourse.push_front(AH.getID());
 
@@ -87,7 +87,7 @@ int main(int argc, char *argv[])
 
     Professor::professors.insert(AH.getID(),AH);
     Professor::professors.insert(SS.getID(),SS);
-    Professor::professors.insert(MI.getID(),MI);
+    //Professor::professors.insert(MI.getID(),MI);
 
     Student::students.insert(x1.getID(),x1);
     Student::students.insert(x2.getID(),x2);
