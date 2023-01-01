@@ -461,11 +461,7 @@ QSlider::sub-page:vertical {
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="idLabel">
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
+      <widget class="QLineEdit" name="idLineEdit"/>
      </item>
     </layout>
    </item>

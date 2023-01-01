@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>721</width>
-    <height>664</height>
+    <width>725</width>
+    <height>651</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -614,6 +614,7 @@ selection-background-color: #202020;
        <attribute name="title">
         <string>Course</string>
        </attribute>
+<<<<<<< HEAD
        <widget class="QWidget" name="">
         <layout class="QGridLayout" name="gridLayout_2" rowstretch="0,1" columnstretch="0,1">
          <item row="0" column="1">
@@ -693,10 +694,31 @@ selection-background-color: #202020;
            </property>
            <property name="styleSheet">
             <string notr="true">QTableWidget{
+=======
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <layout class="QGridLayout" name="gridLayout_2" rowstretch="0,1" columnstretch="0,1">
+          <item row="1" column="1">
+           <widget class="QTableWidget" name="courseTable">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>18</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QTableWidget{
+>>>>>>> fa94936290dbb4550fcc7a0bbe9fb963ef7fee0a
 background-color: #C0C0C0;
 alternate-background-color: #606060;
 selection-background-color: #202020;
 }</string>
+<<<<<<< HEAD
            </property>
            <property name="editTriggers">
             <set>QAbstractItemView::NoEditTriggers</set>
@@ -727,6 +749,110 @@ selection-background-color: #202020;
          </item>
         </layout>
        </widget>
+=======
+            </property>
+            <property name="editTriggers">
+             <set>QAbstractItemView::NoEditTriggers</set>
+            </property>
+            <property name="alternatingRowColors">
+             <bool>true</bool>
+            </property>
+            <property name="selectionMode">
+             <enum>QAbstractItemView::SingleSelection</enum>
+            </property>
+            <property name="selectionBehavior">
+             <enum>QAbstractItemView::SelectRows</enum>
+            </property>
+            <property name="sortingEnabled">
+             <bool>true</bool>
+            </property>
+            <attribute name="horizontalHeaderStretchLastSection">
+             <bool>true</bool>
+            </attribute>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <layout class="QVBoxLayout" name="verticalLayout_5">
+            <item>
+             <widget class="QPushButton" name="addCourse">
+              <property name="text">
+               <string>Add new</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_12">
+              <property name="text">
+               <string>Delete</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="0" column="0">
+           <widget class="QPushButton" name="RefreshCButton">
+            <property name="text">
+             <string>Refresh</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <layout class="QHBoxLayout" name="horizontalLayout_6">
+            <item>
+             <widget class="QComboBox" name="comboBox_3">
+              <property name="toolTip">
+               <string>search</string>
+              </property>
+              <property name="statusTip">
+               <string>search</string>
+              </property>
+              <property name="autoFillBackground">
+               <bool>false</bool>
+              </property>
+              <property name="currentText">
+               <string extracomment="search"/>
+              </property>
+              <property name="placeholderText">
+               <string>search</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_3">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Maximum</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>120</width>
+                <height>30</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_9">
+              <property name="text">
+               <string>search</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_10">
+              <property name="text">
+               <string>clear</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+>>>>>>> fa94936290dbb4550fcc7a0bbe9fb963ef7fee0a
       </widget>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
@@ -851,8 +977,8 @@ selection-background-color: #202020;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>721</width>
-     <height>28</height>
+     <width>725</width>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuAdmin_Panel">

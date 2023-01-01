@@ -2,7 +2,7 @@
 #include "ui_ProfessorEditPage.h"
 #include<QMessageBox>
 #include <QAction>
-
+#include<QMessageBox>
 #include "course.h"
 
 ProfessorEditPage::ProfessorEditPage(QWidget *parent,QMap<QString,Professor>:: Iterator profIt) :
@@ -31,6 +31,7 @@ ProfessorEditPage::~ProfessorEditPage()
 {
     delete ui;
 }
+
 
 void ProfessorEditPage::courseComboBoxDisplay()
 {
@@ -85,7 +86,11 @@ void ProfessorEditPage::on_savePushButton_clicked()
 {
     if(ui->nameLineEdit->text().isEmpty()||ui->emailLineEdit->text().isEmpty()||ui->phoneLineEdit->text().isEmpty()||ui->idLineEdit->text().isEmpty()||ui->titleLineEdit->text().isEmpty())
     {
+<<<<<<< HEAD
         QMessageBox::critical(this,"Error","Empty line");
+=======
+        QMessageBox::critical(this,"Erorr","Empty line");
+>>>>>>> fa94936290dbb4550fcc7a0bbe9fb963ef7fee0a
         return;//وممكن كمان نخليها كيز عشان يطلعلوا ايه الفاضى بالظبط عضشان عيون عمر
     }
 
@@ -99,11 +104,19 @@ void ProfessorEditPage::on_savePushButton_clicked()
    for(int i = 0; i < coursesNum; i++)
     {
 
+<<<<<<< HEAD
 
 
        profPtr->coursesForProfessor.insert(i,Course::courses.find(ui->courseComboBox->itemText(i)).value());
 
 
+=======
+//       Course *thisCourse=new Course;
+//       *thisCourse = Course::courses.find(ui->courseComboBox->itemText(i)).value();
+
+       profPtr->coursesForProfessor.insert(i,Course::courses.find(ui->courseComboBox->itemText(i)).value());
+
+>>>>>>> fa94936290dbb4550fcc7a0bbe9fb963ef7fee0a
     }
 
     profPtr->setID(ui->idLineEdit->text());

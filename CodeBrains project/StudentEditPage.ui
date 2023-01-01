@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>541</width>
-    <height>573</height>
+    <width>533</width>
+    <height>507</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -118,41 +118,52 @@
     </layout>
    </item>
    <item>
-    <layout class="QVBoxLayout" name="verticalLayout">
+    <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,2,0,0">
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <widget class="QLabel" name="label_6">
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+        </font>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Box</enum>
+       </property>
+       <property name="text">
+        <string>Course:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="courseComboBox"/>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="gradeLineEdit"/>
+     </item>
+     <item>
+      <widget class="QPushButton" name="setPushButton">
+       <property name="text">
+        <string>Set</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <widget class="QTableWidget" name="allCoursesTable"/>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
        <item>
-        <widget class="QLabel" name="label_6">
-         <property name="font">
-          <font>
-           <pointsize>15</pointsize>
-          </font>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::Box</enum>
-         </property>
-         <property name="text">
-          <string>Course:</string>
+        <widget class="QTableWidget" name="studentCoursesTable">
+         <property name="sortingEnabled">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
-       <item>
-        <widget class="QComboBox" name="coursecomboBox"/>
-       </item>
       </layout>
-     </item>
-     <item>
-      <widget class="QTableWidget" name="studentTableInfo"/>
-     </item>
-     <item>
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Double Click to add a course to this student</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-       </property>
-      </widget>
      </item>
     </layout>
    </item>

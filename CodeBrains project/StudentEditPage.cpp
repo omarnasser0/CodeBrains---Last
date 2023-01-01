@@ -162,15 +162,23 @@ void StudentEditPage::on_savePushButton_clicked()
 {
 if(ui->nameLineEdit->text().isEmpty()||ui->emailLineEdit->text().isEmpty()||ui->phoneLineEdit->text().isEmpty()||ui->idLineEdit->text().isEmpty())
 {
+<<<<<<< HEAD
     QMessageBox::critical(this,"Error","Empty line");
     return;//وممكن كمان نخليها كيز عشان يطلعلوا ايه الفاضى بالظبط عشان عيون عمر
+=======
+    QMessageBox::critical(this,"Erorr","Empty line");
+    return;//وممكن كمان نخليها كيز عشان يطلعلوا ايه الفاضى بالظبط عضشان عيون عمر
+>>>>>>> fa94936290dbb4550fcc7a0bbe9fb963ef7fee0a
 }
     studPtr->setFullName(ui->nameLineEdit->text());
     studPtr->setMail(ui->emailLineEdit->text());
     studPtr->setMobile(ui->phoneLineEdit->text());
 
     int courseNum = ui->studentCoursesTable->rowCount();
+<<<<<<< HEAD
     studPtr->grades.clear();
+=======
+>>>>>>> fa94936290dbb4550fcc7a0bbe9fb963ef7fee0a
     for(int i=0;i<courseNum;i++)
     {
         studPtr->grades.insert(ui->studentCoursesTable->takeItem(i,0)->text(),ui->studentCoursesTable->takeItem(i,2)->text().toFloat());
