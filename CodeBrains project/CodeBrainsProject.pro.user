@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 9.0.0, 2022-12-30T23:22:36. -->
+<!-- Written by QtCreator 9.0.0, 2023-01-01T20:06:12. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -239,8 +239,8 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:D:/CUFE/SBE/2nd/MATH/Final Report/CodeBrains---Last/CodeBrains project/CodeBrainsProject.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">D:/CUFE/SBE/2nd/MATH/Final Report/CodeBrains---Last/CodeBrains project/CodeBrainsProject.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:D:/imp copy dt pro/‏‏CodeBrains---Last/CodeBrains project/CodeBrainsProject.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">D:/imp copy dt pro/‏‏CodeBrains---Last/CodeBrains project/CodeBrainsProject.pro</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
