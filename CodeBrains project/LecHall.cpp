@@ -15,16 +15,14 @@ bool LecHall::isAvaliable(QString day, QString time)
     return this->avaliable[dayn][timen];
 }
 
-QVector <QString> LecHall::timesAval(QString d)
+QStringList LecHall::timesAval(QString d)
 {
-    QVector <QString> timesAval;
-
-    int dayn = LecHall::days.find(d).value();
+    QStringList timesAval;
 
     for(QMap <QString,int> :: Iterator t = LecHall::times.begin();
         t != LecHall::times.end();
         t++){
-        if(this->avaliable[dayn][t.value()])
+        if(this->isAvaliable(d,t.key()))
             timesAval.push_front(t.key());
     }
     return timesAval;

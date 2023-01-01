@@ -57,6 +57,38 @@ private slots:
 
     void on_addProfessor_clicked();
 
+    void on_lineEdit_stud_textChanged(const QString &arg1);
+
+    void on_lineEdit_course_textChanged(const QString &arg1);
+
+    void on_lineEdit_prof_textChanged(const QString &arg1);
+
+    void on_search_stud_clicked();
+
+    void on_search_prof_clicked();
+
+    void on_delete_prof_clicked();
+
+    void on_search_course_clicked();
+
+    void on_build_stud_clicked();
+
+    void on_build_course_clicked();
+
+    void on_build_prof_clicked();
+
+
+
+    void on_delete_stud_clicked();
+
+    void on_delete_course_clicked();
+
+    void on_save_stud_clicked();
+
+    void on_save_course_clicked();
+
+    void on_save_prof_clicked();
+
 private:
     Ui::HomePage *ui;
 //    CoursePage *coursePage;

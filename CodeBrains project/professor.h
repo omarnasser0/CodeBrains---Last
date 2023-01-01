@@ -14,7 +14,7 @@ protected:
 
 public:
     //المفروض فى فانكشن جيت كورسز وتإنسرت فى الفيكتور ويبقا الفكتور برايفت
-   vector<Course>coursesForProfessor;
+   QVector<Course>coursesForProfessor;
 
    // When I click add I will insert this opject in map with his id;
    static QMap<QString, Professor>professors;

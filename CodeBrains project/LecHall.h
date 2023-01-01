@@ -15,7 +15,7 @@ public:
 
     static QMap<QString,LecHall> lecHalls;
 
-    bool avaliable[6][5] = {true};
+    bool avaliable[6][5] = {{true,true,true,true,true}};
 
     LecHall(QString n);
 
@@ -23,7 +23,7 @@ public:
 
     bool isAvaliable(QString day, QString time);
 
-    QVector <QString> timesAval(QString d);
+    QStringList timesAval(QString d);
 
     void reserve(QString day, QString time);
 

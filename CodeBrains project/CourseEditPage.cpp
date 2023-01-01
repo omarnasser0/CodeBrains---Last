@@ -65,11 +65,12 @@ void CourseEditPage::timeComboboxdisplay()
 
     QString     daySelected =ui->dayComboBox->currentText();
 
-    for(QMap <QString,int> :: Iterator t = LecHall::times.begin();
-        t != LecHall::times.end();
-        t++)
-        if(lhIt->isAvaliable(daySelected,t.key()))
-            timeAvalList.push_front(t.key());
+//    for(QMap <QString,int> :: Iterator t = LecHall::times.begin();
+//        t != LecHall::times.end();
+//        t++)
+//        if(lhIt->isAvaliable(daySelected,t.key()))
+//            timeAvalList.push_front(t.key());
+    timeAvalList = lhIt->timesAval(daySelected);
 
     for(int lh = 0; lh < timeAvalList.size(); lh++)
         ui->timeComboBox->addItem(timeAvalList[lh]);
