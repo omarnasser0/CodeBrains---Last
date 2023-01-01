@@ -349,7 +349,6 @@ void HomePage::on_build_prof_clicked()
 
 void HomePage::on_delete_stud_clicked()
 {
-
     Student::students.remove(ui->lineEdit_stud->text());
     ui->studentTable->clear();
     studentTableDisblay();
